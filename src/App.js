@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import BottomSheet from "./BottomSheet";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <BottomSheet>
+        <h2>Draggable Bottom Sheet Modal</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          distinctio illo temporibus consectetur quos veritatis tempore incidunt
+          dolorem alias aperiam et sapiente ex eaque natus, nesciunt, itaque a
+          ipsam numquam rerum dolores voluptatum quia deleniti ullam vero! Quae,
+          officiis esse sunt vitae similique cum vel corporis assumenda,
+          nesciunt, repellat dignissimos?
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </BottomSheet>
     </div>
   );
 }
