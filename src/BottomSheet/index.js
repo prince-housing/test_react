@@ -22,7 +22,6 @@ const BottomSheet = (props) => {
   }, []);
 
   const dragStart = useCallback((e) => {
-    console.log('hiiiiiiiii dragStart')
     setIsDragging(true);
     setStartY(e.pageY || e.touches?.[0].pageY);
     setStartHeight(sheetHeight);
