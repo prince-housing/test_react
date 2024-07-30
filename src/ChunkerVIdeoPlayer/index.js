@@ -106,7 +106,6 @@ const ChunkedVideoPlayer = forwardRef((props, fwdRef) => {
       );
 
       setIsBuffering(false);
-      fetchAndAppendChunkCallNumber.current = fetchAndAppendChunkCallNumber.current + 1;
     } catch (error) {
       console.error("Error fetching video chunk:", error);
       setIsBuffering(false);
@@ -188,6 +187,7 @@ const ChunkedVideoPlayer = forwardRef((props, fwdRef) => {
       await fetchAndAppendChunk(start, end, sourceBuffer);
       setLastBufferBytes(end);
     }
+    fetchAndAppendChunkCallNumber.current = fetchAndAppendChunkCallNumber.current + 1;
   };
 
   const handleVideoLoadStart = () => {
@@ -207,7 +207,7 @@ const ChunkedVideoPlayer = forwardRef((props, fwdRef) => {
       controls={controls}
       width={width}
       height={height}
-      preload={preload}
+      // preload={preload}
       poster={poster}
       style={style}
       autoPlay={autoPlay}
@@ -216,7 +216,7 @@ const ChunkedVideoPlayer = forwardRef((props, fwdRef) => {
       onEnded={handleVideoEnd}
       onPlay={handleVideoLoadStart}
       onWaiting={handleBufferWaiting}
-      onError={(e) => console.error("Video error:", e)}
+      onError={(e) => console.error("Video error:", e.target.error.message)}
     />
   );
 });
