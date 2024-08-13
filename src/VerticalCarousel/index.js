@@ -1,7 +1,8 @@
 import { debounce } from "lodash";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-const VerticalCarousel = ({ initialIndex = 0, onSlideChange }) => {
+const VerticalCarousel = (props) => {
+  const { initialIndex = 0, onSlideChange, children } = props;
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
@@ -54,21 +55,13 @@ const VerticalCarousel = ({ initialIndex = 0, onSlideChange }) => {
 
   return (
     <div className="snapContainer" ref={containerRef} onScroll={handleOnScroll}>
-      <div className="snapSlideContainer">
-        <p>Content 1</p>
-      </div>
-      <div className="snapSlideContainer">
-        <p>Content 2</p>
-      </div>
-      <div className="snapSlideContainer">
-        <p>Content 3</p>
-      </div>
-      <div className="snapSlideContainer">
-        <p>Content 4</p>
-      </div>
-      <div className="snapSlideContainer">
-        <p>Content 5</p>
-      </div>
+    {
+      children?.map?.((child, index) => (
+        <div key={index} className="snapSlideContainer">
+          {child}
+        </div>
+      ))
+    }
     </div>
   );
 };
