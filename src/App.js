@@ -1,6 +1,7 @@
 import "./App.css";
 import BottomSheet from "./BottomSheet";
 import ChunkedVideoPlayer from "./ChunkerVIdeoPlayer";
+import VerticalCarousel from "./VerticalCarousel";
 
 function App() {
   return (
@@ -19,13 +20,18 @@ function App() {
       <ChunkedVideoPlayer
         autoPlay
         controls
-        preloadPercentage={100}
-        videoUrl="https://video.housingcdn.com/721857c7/18e615349cfa0f2b8f599aa61e7/original.mp4"
+        preloadPercentage={10}
+        // videoUrl="https://video.housingcdn.com/721857c7/18e615349cfa0f2b8f599aa61e7/original.mp4"
+        videoUrl="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
         // videoUrl="https://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4"
         width={200}
         height={600}
         poster="https://housing-images.n7net.in/90450d75/18e614fe74e43a940cc3555556f/v0/medium.jpeg"
         style={{width: '100%', height: '100%'}}
+      />
+      <VerticalCarousel
+        initialIndex={2}
+        onSlideChange={(index) => console.log("onSnap", index)}
       />
     </div>
   );

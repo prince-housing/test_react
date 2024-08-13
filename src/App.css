@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.snapContainer {
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+   scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.snapContainer::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.snapSlideContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50vh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.snapSlideContainer {
+  font-family: sans-serif;
+  background: #FED0D1;
+  color: #F34A4E;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.snapSlideContainer:nth-child(2n) {
+  background: #F34A4E;
+  color: #FED0D1;
+}

@@ -11,9 +11,10 @@ const mimeTypes = [
   'video/ogg; codecs="theora, vorbis"',
   'video/mp4; codecs="avc1.64001e, mp4a.40.2"',
   'video/mp4; codecs="avc1.42E01E, mp4a.40.2"',
-  'video/mp4'
+  'video/mp4; codecs="avc1.64000d,mp4a.40.2"',
+  'video/mp4; codecs="avc1.4D4001,mp4a.40.2"',
 ];
-const mimeCodec = mimeTypes[3];
+const mimeCodec = mimeTypes[4];
 const chunkSize = 500 * 1024;
 
 const ChunkedVideoPlayer = forwardRef((props, fwdRef) => {
@@ -120,6 +121,7 @@ const ChunkedVideoPlayer = forwardRef((props, fwdRef) => {
     ) {
       const mediaSource = new MediaSource();
       videoRef.current.src = URL.createObjectURL(mediaSource);
+      // videoRef.current.src = videoUrl;
       videoRef.current.crossOrigin = 'anonymous';
 
 
